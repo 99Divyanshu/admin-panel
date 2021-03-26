@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 ">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
@@ -18,7 +18,7 @@
     <!-- Weight Column -->
     <ng-container matColumnDef="weight">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Weight </th>
-      <td mat-cell *matCellDef="let element"> {{element.weight | number:'2.2-2'}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.weight | number:'2.2-2'}} </td><!--min integer digits.min fraction digits-max fraction digits-->
     </ng-container>
   
     <!-- Symbol Column -->

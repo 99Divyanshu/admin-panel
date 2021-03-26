@@ -3,7 +3,7 @@
         <button mat-icon-button (click)="toggleSidenav()">
             <mat-icon>menu</mat-icon>
         </button>   
-        <span>App Logo</span>
+        <span>Admin-Panel</span>
         <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
             <ul fxLayout="row" fxLayoutGap="20px">
                 <li>
@@ -12,7 +12,7 @@
                     </button>
                 </li>
                 <li>
-                    <button mat-icon-button>
+                    <button mat-icon-button >
                         <mat-icon>help_outline</mat-icon>
                     </button>
                 </li>
@@ -21,7 +21,7 @@
                         <mat-icon>person_outline</mat-icon>
                     </button>
                     <mat-menu #menu="matMenu">
-                        <button mat-menu-item>
+                        <button mat-menu-item (click)="service.logOut()">
                             <mat-icon>exit_to_app</mat-icon>
                             Sign Out
                         </button>

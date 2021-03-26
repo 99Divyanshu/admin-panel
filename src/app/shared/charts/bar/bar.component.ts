@@ -25,7 +25,7 @@ export class BarComponent implements OnInit {
        borderWidth:0,
        margin :[2,2,2,2],
        height:50,
-       width:308
+       width:300
     },
     title: {
         text: null

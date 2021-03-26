@@ -15,8 +15,13 @@ import { LineColumnComponent } from './charts/line-column/line-column.component'
 import { HighchartsChartModule } from 'highcharts-angular';
 import { BarComponent } from './charts/bar/bar.component';
 import { PieComponent } from './charts/pie/pie.component';
-
-
+import { TableComponent } from './tables/table/table.component';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { ChartComponent } from './charts/chart/chart.component';
+import { ScatterComponent } from './charts/scatter/scatter.component';
+import { ColumnComponent } from './charts/column/column.component';
+import { EmptyComponent } from './empty/empty.component';
 
 
 @NgModule({
@@ -26,7 +31,12 @@ import { PieComponent } from './charts/pie/pie.component';
     SidebarComponent,
     LineColumnComponent,
     BarComponent,
-    PieComponent
+    PieComponent,
+    TableComponent,
+    ChartComponent,
+    ScatterComponent,
+    ColumnComponent,
+    EmptyComponent
   ],
   imports: [
     CommonModule,
@@ -39,6 +49,8 @@ import { PieComponent } from './charts/pie/pie.component';
     MatListModule,
     RouterModule,
     HighchartsChartModule,
+    MatSortModule,
+    MatTableModule
     
 
   ],
@@ -48,7 +60,10 @@ import { PieComponent } from './charts/pie/pie.component';
     SidebarComponent,
     LineColumnComponent,
     BarComponent,
-    PieComponent
+    PieComponent,TableComponent,
+    ScatterComponent,
+    ColumnComponent
+    
   ]
 })
 export class SharedModule { }

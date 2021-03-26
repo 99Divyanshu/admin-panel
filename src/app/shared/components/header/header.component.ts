@@ -1,4 +1,5 @@
 import { Component, OnInit,EventEmitter,Output } from '@angular/core';
+import { MysericeService } from 'src/app/login/service/myserice.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { Component, OnInit,EventEmitter,Output } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Output() toggleSidenavForMe: EventEmitter<any>=new EventEmitter();
-  constructor() { }
+  constructor(public service:MysericeService) { }
 
   ngOnInit(): void {
   }
