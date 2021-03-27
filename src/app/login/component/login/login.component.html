@@ -1,0 +1,21 @@
+<div class="back">
+    <div class="card">
+        <div class="card-header">
+          Login
+        </div>
+        <div class="card-body">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" placeholder="Enter your username here...." #u1/><br>
+          <label for="password">Password</label>
+          <input type="password" class="form-control" placeholder="Enter your Password..." #p2/><br>
+          <button class="btn btn-primary" (click)="check(u1.value,p2.value)">Login</button>
+          <br>
+          <span class="alert-danger">{{msg}}</span>
+          <br>
+          <div>
+            <p>Not a member?</p>
+            <a href="/register">Register</a>
+          </div>
+        </div>
+      </div>
+</div>

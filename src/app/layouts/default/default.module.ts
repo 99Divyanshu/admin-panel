@@ -4,19 +4,20 @@ import { DefaultComponent } from './default.component';
 import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { PostsComponent } from 'src/app/modules/posts/posts.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
+import { ProfileComponent } from 'src/app/modules/profile/profile.component';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
     DefaultComponent,
     DashboardComponent,
-    PostsComponent
+    ProfileComponent
   ],
   imports: [
     CommonModule,
@@ -26,8 +27,8 @@ import {MatTableModule} from '@angular/material/table';
     MatDividerModule,
     MatCardModule,
     FlexLayoutModule,
-    MatIconModule,
-    MatTableModule
+    MatIconModule
+    
   ]
 })
 export class DefaultModule { }

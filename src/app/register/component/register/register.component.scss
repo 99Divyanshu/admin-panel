@@ -1,0 +1,60 @@
+
+input.ng-touched.ng-invalid
+{
+    border:1px solid red;
+    
+}
+h2
+{
+    text-align: center;
+    font-weight: bold;
+}
+.card
+{
+    
+    margin-left: 15%;
+    width:70%;
+}
+.card
+{
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+.card-header
+{
+    background-color: rgb(34, 34, 34);
+    color: rgb(236, 234, 230);
+}
+    
+.print
+{
+    margin-left: 50%;
+    
+}
+h5
+{
+    margin-left: -35%;
+}
+p
+{
+    text-align: center;
+}
+
+.row
+{
+    display: flex;
+    justify-content: space-around;
+}
+.cent
+{
+    margin-left:48%;
+    margin-right: 50%;
+    display: inline-block;
+}
+.container
+{
+    height: 100vh;
+  width: 100vw;
+  overflow: auto;
+  float: right;
+}

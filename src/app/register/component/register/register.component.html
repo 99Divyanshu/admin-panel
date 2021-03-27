@@ -1,0 +1,174 @@
+<div class="container">
+<div class="card">
+    <div class="card-header">
+      <h2>Sign-Up</h2>
+    </div>
+    <div class="card-body">
+       
+            <form #signupForm="ngForm" *ngFor="let fo of form_el">
+                <div class="row">
+                    <div class="col" >
+                        <div class="form-group"><!--form group is used for proper grouping -->
+                            <label for="firstname">First Name</label>
+                            <input [(ngModel)]="fo.item1"  name="f1" type="text"  class="form-control" placeholder="Enter your first name here...." ngModel required #f1="ngModel" minlength="4">
+                            <div *ngIf="f1.invalid && (f1.dirty || f1.touched)"
+                                class="alert alert-danger">                               
+                                <div *ngIf="f1.hasError('required')">
+                                 First Name is required.
+                                </div>
+                                <div *ngIf="f1.hasError('minlength')">
+                                    Minimum Length is 4 characters.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="lastname">Last Name</label>
+                            <input [(ngModel)]="fo.item2" name="l1" type="text" class="form-control" placeholder="Enter your last name here...." ngModel required minlength="4" #l1="ngModel">
+                            <div *ngIf="l1.invalid && (l1.dirty || l1.touched)"
+                                class="alert alert-danger">                               
+                                <div *ngIf="l1.hasError('required')">
+                                 Last Name is required.
+                                </div>
+                                <div *ngIf="l1.hasError('minlength')">
+                                    Minimum Length is 4 characters.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input  [(ngModel)]="fo.item3" type="email" name="e1" class="form-control" placeholder="Enter your E-mail ID here...." ngModel required email #e1="ngModel"> 
+                    <div *ngIf="e1.invalid && (e1.dirty || e1.touched)"
+                                class="alert alert-danger">                               
+                                <div *ngIf="e1.hasError('required')">
+                                 E-mail is required.
+                                </div>
+                                <div *ngIf="e1.hasError('email')">
+                                    Enter a valid E-mail.
+                                </div>
+                            </div>
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact No.</label>
+                    <input [(ngModel)]="fo.item4" type="tel" class="form-control" name="f2" placeholder="Enter your contact no. here...." ngModel required minlength="10" maxlength="10" #f2="ngModel">    
+                    <div *ngIf="f2.invalid && (f2.dirty || f2.touched)"
+                                class="alert alert-danger">                               
+                                <div *ngIf="f2.hasError('required')">
+                                 Contact No. is required.
+                                </div>
+                                <div *ngIf="f2.hasError('minlength')">
+                                    Enter valid No. of length 10.
+                                </div>
+                                <div *ngIf="f2.hasError('maxlength')">
+                                    Enter valid No. of length 10.
+                                </div>
+                            </div>
+                </div>
+                <div class="row">
+                    <div class="col" >
+                        <div class="form-group"><!--form group is used for proper grouping -->
+                            <label for="address">Address 1(Street/Flat No.)</label>
+                            <input  [(ngModel)]="fo.item5" name="a1" type="text"  class="form-control" placeholder="Enter your address here...." ngModel required #a1="ngModel">
+                            <div *ngIf="a1.invalid && (a1.dirty || a1.touched)"
+                                class="alert alert-danger">                               
+                                <div *ngIf="a1.hasError('required')">
+                                 Address is required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="address2">Address 2(Area/Region)</label>
+                            <input [(ngModel)]="fo.item6" name="a2" type="text" class="form-control" placeholder="Enter your last address here...." ngModel required #a2="ngModel">
+                            <div *ngIf="a2.invalid && (a2.dirty || a2.touched)"
+                            class="alert alert-danger">                               
+                            <div *ngIf="a2.hasError('required')">
+                             address is required.
+                            </div>
+                           
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="Country">Country</label>
+                            <input [(ngModel)]="fo.item7" name="c1" type="text" class="form-control"  placeholder="Enter your country name here...." ngModel required #c1="ngModel">
+                            <div *ngIf="c1.invalid && (c1.dirty || c1.touched)"
+                                class="alert alert-danger">                               
+                                <div *ngIf="l1.hasError('required')">
+                                 Country is required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="State">State</label>
+                            <select [(ngModel)]="fo.item8" name="s1" class="form-control" #state="ngModel"   >
+                              <option *ngFor ="let count of stateList">{{count.name}}</option>
+                            </select>
+                            <div class="alert alert-danger" *ngIf="state.errors  && (state.dirty || state.touched)">              
+                                 Please select your state
+                            </div>
+                        </div>        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="City">City</label>
+                            <select [(ngModel)]="fo.item9" name="c1" class="form-control" #city="ngModel" >
+                                <option *ngFor ="let c of cities">{{c.city}}</option>
+                              </select>
+                              <div class="alert alert-danger" *ngIf="city.errors  && (city.dirty || city.touched)">              
+                                Please select your city
+                              </div>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input [(ngModel)]="fo.item10" name="p1" type="password" class="form-control" placeholder="Enter your password here...." ngModel required minlength="6" #p1="ngModel">
+                            <div *ngIf="p1.invalid && (p1.dirty || p1.touched)"
+                                class="alert alert-danger">                               
+                                <div *ngIf="p1.hasError('required')">
+                                 Please Set Password is required.
+                                </div>
+                                <div *ngIf="p1.hasError('minlength')">
+                                    Minimum length is 6 characters.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="confirmpassword">Password</label>
+                            <input [(ngModel)]="fo.item11" name="p2" type="password" class="form-control" placeholder="Re-Enter your password here...." ngModel required   #p2="ngModel">
+                            <div class="alert alert-danger" *ngIf="fo.item10!=fo.item11 && p2.touched" >              
+                                Password not matching
+                              </div>
+                        </div>
+                    </div>                    
+                </div>
+             <div class="row">
+                   <button   type="submit" class="btn btn-primary" [disabled]="signupForm.invalid"(click)="onSubmit(signupForm)" >Submit</button>
+                  <button  type="reset" class="btn btn-danger"  >Clear</button>
+             </div>
+             <div >
+                <p >Already a member?</p>
+                <a  href="/" class="cent">Login</a>
+            </div>
+                     
+            </form>
+        </div>
+    </div>
+
+  </div>

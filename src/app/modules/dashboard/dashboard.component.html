@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid ">
     <div class="row">
         <div class="col-lg-10 col-md-10">
             <h2>Dashboard</h2>
@@ -9,12 +9,12 @@
     </div>
     
     
-    <div class="row">
+    <div class="row ">
         <div class="mat-card col-lg-8 col-md-8 mat-elevation-z8" id="line">
             <app-line-column></app-line-column>
         </div>
-        <div class=" col-md-3 offset-md-1 " id="bar">
-            <div class="row mat-card mat-elevation-z8">
+        <div class=" col-md-3 offset-md-1" id="bar">
+            <div class="row mat-card mat-elevation-z8 ">
                 <app-bar label="Users" total="18K" percentage="50%"></app-bar>
             </div>
             <br><br>
@@ -47,42 +47,11 @@
     
     <mat-divider></mat-divider>
     <br>
-    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
-        <div fxFlex=60>
-            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-                <!--- Note that these columns can be defined in any order.
-                      The actual rendered columns are set as a property on the row definition" -->
-              
-                <!-- Position Column -->
-                <ng-container matColumnDef="position">
-                  <th mat-header-cell *matHeaderCellDef> No. </th>
-                  <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-                </ng-container>
-              
-                <!-- Name Column -->
-                <ng-container matColumnDef="name">
-                  <th mat-header-cell *matHeaderCellDef> Name </th>
-                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-                </ng-container>
-              
-                <!-- Weight Column -->
-                <ng-container matColumnDef="weight">
-                  <th mat-header-cell *matHeaderCellDef> Weight </th>
-                  <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-                </ng-container>
-              
-                <!-- Symbol Column -->
-                <ng-container matColumnDef="symbol">
-                  <th mat-header-cell *matHeaderCellDef> Symbol </th>
-                  <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-                </ng-container>
-              
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-              </table>
+    <div class="row" >
+        <div class="col-lg-7 col-md-7">
+            <app-table></app-table>
         </div>
-        <div fxFlex=40 class="mat-elevation-z8">
+        <div class="col-lg-4 col-md-4 offset-md-1 mat-elevation-z8">
             <app-pie></app-pie>
         </div>
     </div>
