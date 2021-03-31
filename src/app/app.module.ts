@@ -11,7 +11,8 @@ import { LoginComponent } from './login/component/login/login.component';
 import { AuthGuard } from './login/auth/auth.guard';
 //import { DefaultComponent } from './layouts/default/default.component';
 import { RegisterComponent } from './register/component/register/register.component';
-
+import { HttpClient } from '@angular/common/http';
+import { MysericeService } from './login/service/myserice.service';
 
 
 @NgModule({
