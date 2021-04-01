@@ -29,7 +29,7 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     FlexLayoutModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
     
   ]
 })

@@ -22,6 +22,7 @@ import { ChartComponent } from './charts/chart/chart.component';
 import { ScatterComponent } from './charts/scatter/scatter.component';
 import { ColumnComponent } from './charts/column/column.component';
 import { EmptyComponent } from './empty/empty.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -50,7 +51,9 @@ import { EmptyComponent } from './empty/empty.component';
     RouterModule,
     HighchartsChartModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
+    
     
 
   ],
