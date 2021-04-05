@@ -23,6 +23,7 @@ import { ScatterComponent } from './charts/scatter/scatter.component';
 import { ColumnComponent } from './charts/column/column.component';
 import { EmptyComponent } from './empty/empty.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     HighchartsChartModule,
     MatSortModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSidenavModule
     
     
 

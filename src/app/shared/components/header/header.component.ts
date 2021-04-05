@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   }
   toggleSidenav()
   {
-    this.toggleSidenavForMe.emit()
+    this.toggleSidenavForMe.emit();
     setTimeout(()=>{
       window.dispatchEvent(
         new Event('resize')

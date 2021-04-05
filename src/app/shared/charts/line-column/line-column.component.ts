@@ -20,10 +20,10 @@ export class LineColumnComponent implements OnInit {
         zoomType: 'xy'
     },
     title: {
-        text: 'Average Monthly Temperature and Rainfall in Tokyo'
+        text: 'Average Monthly Temperature and Rainfall in Delhi'
     },
     subtitle: {
-        text: 'Source: WorldClimate.com'
+        text: 'Source:imd.com'
     },
     xAxis: [{
         categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
@@ -32,7 +32,7 @@ export class LineColumnComponent implements OnInit {
     }],
     yAxis: [{ // Primary yAxis
         labels: {
-            format: '{value}°C',
+            format: '{value}°F',
             style: {
                // color: Highcharts.getOptions().colors[1]
             }
@@ -45,7 +45,7 @@ export class LineColumnComponent implements OnInit {
         }
     }, { // Secondary yAxis
         title: {
-            text: 'Rainfall',
+            text: 'Precipitation',
             style: {
                 //color: Highcharts.getOptions().colors[0]
             }
@@ -83,7 +83,7 @@ export class LineColumnComponent implements OnInit {
         name: 'Rainfall',
         type: 'column',
         yAxis: 1,
-        data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+        data: [59.9, 91.5, 106.4, 129.2, 12.0, 376.0, 135.6, 188.5, 216.4, 194.1, 5.6, 154.4],
         tooltip: {
             valueSuffix: ' mm'
         }
@@ -91,7 +91,7 @@ export class LineColumnComponent implements OnInit {
     }, {
         name: 'Temperature',
         type: 'spline',
-        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+        data: [60.0, 76.9, 89.5, 84.5, 78.2, 91.5, 85.2, 56.5, 83.3, 98.3, 63.9, 60.6],
         tooltip: {
             valueSuffix: '°C'
         }

@@ -23,7 +23,7 @@ export class PieComponent implements OnInit {
     
     },
     title: {
-        text: 'Browser market shares in January, 2018'
+        text: 'Top Browsers of the World!!'
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -52,7 +52,7 @@ export class PieComponent implements OnInit {
         colorByPoint: true,
         data: [{
             name: 'Chrome',
-            y: 61.41,
+            y: 51.41,
             sliced: true,
             selected: true
         }, {
@@ -60,7 +60,7 @@ export class PieComponent implements OnInit {
             y: 11.84
         }, {
             name: 'Firefox',
-            y: 10.85
+            y: 20.85
         }, {
             name: 'Edge',
             y: 4.67

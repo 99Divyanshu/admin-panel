@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
   user:any={};
  // signupForm!: FormGroup;
   constructor( ) { }
- 
+  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"; 
   signup:any={};
   cities!: Array<any>;
   stateList:Array<any>=[{name:'Select State',cities:['Select City']},
