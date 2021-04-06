@@ -13,13 +13,10 @@ export class ColumnComponent implements OnInit {
 
   ngOnInit(): void {
     this.chartOptions={ chart: {
-      type: 'bar'
+      type: 'column'
   },
   title: {
-      text: 'Historic World Population by Region'
-  },
-  subtitle: {
-      text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+      text: ' World Population Plot'
   },
   xAxis: {
       categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
@@ -64,10 +61,10 @@ export class ColumnComponent implements OnInit {
   },
   series: [{
       name: 'Year 1800',
-      data: [107, 31, 635, 203, 2]
+      data: [17, 31, 65, 203, 2]
   }, {
       name: 'Year 1900',
-      data: [133, 156, 947, 408, 6]
+      data: [133, 106, 947, 408, 6]
   }, {
       name: 'Year 2000',
       data: [814, 841, 3714, 727, 31]

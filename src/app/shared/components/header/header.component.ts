@@ -1,4 +1,5 @@
 import { Component, OnInit,EventEmitter,Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { MysericeService } from 'src/app/login/service/myserice.service';
 
 
@@ -10,7 +11,7 @@ import { MysericeService } from 'src/app/login/service/myserice.service';
 export class HeaderComponent implements OnInit {
 
   @Output() toggleSidenavForMe: EventEmitter<any>=new EventEmitter();
-  constructor(public service:MysericeService) { }
+  constructor(public service:MysericeService,private routes:Router) { }
 
   ngOnInit(): void {
   }
@@ -23,5 +24,12 @@ export class HeaderComponent implements OnInit {
         );
     },300);
   }
-  
+  onHelp()
+  {
+    this.routes.navigate(['/home/empty']);
+  }
+  onSettings()
+  {
+    this.routes.navigate(['/home/empty']);
+  }
 }

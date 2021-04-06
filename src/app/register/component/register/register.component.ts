@@ -1,7 +1,7 @@
   
 //import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
 
   user:any={};
  // signupForm!: FormGroup;
-  constructor( ) { }
+  constructor( private routes: Router) { }
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"; 
   signup:any={};
   cities!: Array<any>;
@@ -49,7 +49,10 @@ export class RegisterComponent implements OnInit {
       users=[user];
     }
     localStorage.setItem('Users',JSON.stringify(users));
+    alert("User Registered!!");
+    this.routes.navigate(['/']);
   }
+  
  
   
 }

@@ -111,7 +111,7 @@
                         <div class="form-group">
                             <label for="State">State</label>
                             <select [(ngModel)]="signup.state"  name="state" class="form-control" #state="ngModel" (change)="changeCountry($event)" required>
-                              <option *ngFor ="let count of stateList">{{count.name}}</option>
+                                <option *ngFor ="let count of stateList">{{count.name}}</option>
                             </select>
                             <div class="alert alert-danger" *ngIf="state.errors  && (state.dirty || state.touched)">              
                                  Please select your state
