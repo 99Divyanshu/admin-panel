@@ -9,18 +9,22 @@ export class MysericeService {
   constructor(private routes: Router) { }
   checkusernameandpassword(uname:string , pwd: string)
   {
-    if(uname=="divyanshu" && pwd=="password")
-    {
-      localStorage.setItem('username',"divyanshu");
-      return true;
-    }
-    else
-    {
-      return false;
-    }
+    let keys:any =Object.keys(localStorage);
+    for (let i = 0; i < keys.length; i++) {
+
+      let value=localStorage.getItem(keys[i]);
+      if(uname==keys[i] && pwd=="password")
+      {
+        localStorage.setItem('currentUser',JSON.stringify(value));
+        return true;
+      }
+      
   }
+    return false;
+    
+}
   logOut(){
-    localStorage.removeItem('username');
+    localStorage.removeItem('currentUser');
     this.routes.navigate(['/'])
    }
 }
