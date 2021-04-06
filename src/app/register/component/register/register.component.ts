@@ -38,19 +38,21 @@ export class RegisterComponent implements OnInit {
  
   addUser(user: any)
   {
-    let users=[];
-    if(localStorage.getItem('Users'))
+    //let users=[];
+    if(localStorage.getItem(this.user.mail))
     {
-      users=JSON.parse(localStorage.getItem('Users')!);
-      users=[user,...users];//...is a spread operator that allows elements of array to expand in existing array
+      alert("User already exist with that e-mail");
+      //users=JSON.parse(localStorage.getItem('Users')!);
+      //users=[user,...users];//...is a spread operator that allows elements of array to expand in existing array
     }
     else
     {
-      users=[user];
+      //users=[user];
+      localStorage.setItem(this.user.mail,JSON.stringify(user));
+      alert("User Registered!!");
+      this.routes.navigate(['/']);
     }
-    localStorage.setItem('Users',JSON.stringify(users));
-    alert("User Registered!!");
-    this.routes.navigate(['/']);
+
   }
   
  
