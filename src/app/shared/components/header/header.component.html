@@ -3,7 +3,7 @@
         <button mat-icon-button (click)="toggleSidenav()">
             <mat-icon>menu</mat-icon>
         </button>   
-        <span>Admin-Panel</span>
+        <span *ngFor="let it of userList" >                     Welcome {{it.fname}}!!</span>
         <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
             <ul fxLayout="row" fxLayoutGap="20px">
                 <li>

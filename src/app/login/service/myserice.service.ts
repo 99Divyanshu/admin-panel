@@ -13,7 +13,7 @@ export class MysericeService {
     for (let i = 0; i < keys.length; i++) {
 
       let userList = JSON.parse(localStorage.getItem(keys[i])||'{}');
-      if(uname==keys[i] && pwd==userList.password)
+      if(uname==userList.mail && pwd==userList.password)
       {
         localStorage.setItem('currentUser',JSON.stringify(userList));
         return true;

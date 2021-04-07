@@ -11,22 +11,22 @@
 <div class="row">
 <div class="col-lg-4 col-md-4">
     <div class="card ">
-        <div class="card-body checki">
+        <div class="card-body checki" *ngFor="let it2 of userList">
                 <img src="assets/prof.png" alt="" class="rounded-circle" width="150">
-                <h4 class="card-title">Sachin Tendulkar</h4>
+                <h4 class="card-title">{{it2.fname}} {{it2.lname}}</h4>
                 <h6 class="card-subtitle">Cricketer</h6>
     
         </div>
         <div>
             <mat-divider></mat-divider>
         </div>
-        <div class="card-body">
+        <div class="card-body" *ngFor="let it of userList">
             <h5 class="text-muted">E-mail Address</h5>
             <h5>sachin_10@gmail.com</h5>
             <h5 class="text-muted">Phone</h5>
-            <h5>{{phone}}</h5>
+            <h5>{{it.pnumber}}</h5>
             <h5 class="text-muted">Address</h5>
-            <h5>71 Pilgrim Avenue Chevy Chase,MD 20815</h5>
+            <h5>{{it.a1}} {{it.a2}},{{it.city}},{{it.state}}</h5>
             <h5 class="text-muted">Social Profile</h5>
             <br>
             <button class="btn btn-circle btn-secondary rounded-circle">
@@ -47,69 +47,129 @@
 <div class="col-lg-8 col-md-8">
     <div class="card">
         <div class="card-body">
-            <form class="form-horizontal form-material">
-                <div class="form-group">
-                    <label class="col-md-12">Full Name</label>
-                    <div class="col-md-12">
-                        <input type="text" placeholder="Sachin Tendulkar"
-                        class="form-control form-control-line">
+            <form class="form-signin" name="signup" (ngSubmit)="onSubmit()"  *ngFor="let item of userList">
+                <div class="row">
+                    <div class="col" >
+                        <div class="form-group"><!--form group is used for proper grouping -->
+                            <label for="firstname">First Name</label>
+                            <input [(ngModel)]="item.fname"  name="fname" type="text"  class="form-control"  #fname="ngModel" disabled> 
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="lastname">Last Name</label>
+                            <input [(ngModel)]="item.lname" name="lname" type="text" class="form-control"   disabled #lname="ngModel">
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-12">Email</label>
-                    <div class="col-md-12">
-                        <input type="email" placeholder="sachin_10@gmail.com" class="form-control form-control-line" disabled>
-                    </div>
+                    <label for="email">E-mail</label>
+                    <input  [(ngModel)]="item.mail" type="email" name="mail" class="form-control" [pattern]="emailPattern" ngModel disabled email #mail="ngModel">
                 </div>
                 <div class="form-group">
-                    <label class="col-md-12">Password</label>
-                    <div class="col-md-12">
-                        <input type="password" value="password"  class="form-control form-control-line" >
+                    <label for="contact">Contact No.</label>
+                    <input [(ngModel)]="item.pnumber" type="tel" class="form-control" name="pnumber" ngModel required minlength="10" maxlength="10" #pnumber="ngModel">    
+                    <div *ngIf="pnumber.invalid && (pnumber.dirty || pnumber.touched)"
+                                class="alert alert-danger">                               
+                                <div *ngIf="pnumber.hasError('required')">
+                                 Contact No. is required.
+                                </div>
+                                <div *ngIf="pnumber.hasError('minlength')">
+                                    Enter valid No. of length 10.
+                                </div>
+                                <div *ngIf="pnumber.hasError('maxlength')">
+                                    Enter valid No. of length 10.
+                                </div>
+                            </div>
+                </div>
+                <div class="row">
+                    <div class="col" >
+                        <div class="form-group"><!--form group is used for proper grouping -->
+                            <label for="address">Address 1(Street/Flat No.)</label>
+                            <input  [(ngModel)]="item.a1" name="a1" type="text"  class="form-control" placeholder="{{item.a1}}" ngModel required #a1="ngModel">
+                            <div *ngIf="a1.invalid && (a1.dirty || a1.touched)"
+                                class="alert alert-danger">                               
+                                <div *ngIf="a1.hasError('required')">
+                                 Address is required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="address2">Address 2(Area/Region)</label>
+                            <input [(ngModel)]="item.a2" name="a2" type="text" class="form-control" ngModel required #a2="ngModel">
+                            <div *ngIf="a2.invalid && (a2.dirty || a2.touched)"
+                            class="alert alert-danger">                               
+                            <div *ngIf="a2.hasError('required')">
+                             address is required.
+                            </div>
+                           
+                        </div>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-md-12">Phone No.</label>
-                    <div class="col-md-12">
-                        <input #p type="text" placeholder="{{phone}}"  class="form-control form-control-line"  >
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="Country">Country</label>
+                            <input [(ngModel)]="item.country" name="country" type="text" class="form-control"   ngModel disabled #country="ngModel">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="State">State</label>
+                            <select [(ngModel)]="item.state"  name="state" class="form-control" #state="ngModel" (change)="changeCountry($event)" required>
+                                <option *ngFor ="let count of stateList">{{count.name}}</option>
+                            </select>
+                            <div class="alert alert-danger" *ngIf="state.errors  && (state.dirty || state.touched)">              
+                                 Please select your state
+                            </div>
+                        </div>        
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="country" class="col-md-12">Country</label>
-                    <div class="col-md-12">
-                        <select class="form-control">
-                            <option >United Kingdom</option>
-                            <option >India</option>
-                            <option >USA</option>
-                            <option >Canada</option>
-                            <option >Thailand</option>
-                        </select>
-                    </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="City">City</label>
+                            <select [(ngModel)]="item.city" name="city" class="form-control" #city="ngModel" required >
+                                <option *ngFor ="let city of cities">{{city}}</option>
+                              </select>
+                              <div class="alert alert-danger" *ngIf="city.errors  && (city.dirty || city.touched)">              
+                                Please select your city
+                              </div>
+                        </div>
+                    </div>                    
                 </div>
-                <div class="form-group">
-                    <label for="State" class="col-md-12">State</label>
-                    <div class="col-md-12">
-                        <select  name="s1" class="form-control"  >
-                            <option>Rajasthan</option>
-                            <option>Haryana</option>
-                            <option>Himachal Pradesh</option>
-                            <option>Uttar Pradesh</option>
-                          </select>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input [(ngModel)]="item.password" name="Password" type="password" class="form-control"  ngModel required minlength="6" #password="ngModel">
+                            <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                                class="alert alert-danger">                               
+                                <div *ngIf="password.hasError('required')">
+                                 Please Set Password is required.
+                                </div>
+                                <div *ngIf="password.hasError('minlength')">
+                                    Minimum length is 6 characters.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="confirmpassword">Password</label>
+                            <input [(ngModel)]="item.confirmpassword" name="confirmpassword" type="password" class="form-control"  ngModel required   #confirmpassword="ngModel">
+                            <div class="alert alert-danger" *ngIf="userList.password!=userList.confirmpassword && confirmpassword.touched" >              
+                                Password not matching
+                              </div>
+                        </div>
                     </div>                    
                 </div>  
                 <div class="form-group">
-                    <label for="city" class="col-md-12">City</label>
                     <div class="col-md-12">
-                        <select  name="s1" class="form-control"  >
-                            <option>Jaipur</option>
-                            <option>Gurugram</option>
-                            <option>Shimla</option>
-                            <option>Lucknow</option>
-                          </select>
-                    </div>
-                </div>  
-                <div class="form-group">
-                    <div class="col-md-12">
-                        <button class="btn btn-success text-white" (click)="onSubmit(p.value)">Update Profile</button>
+                        <button class="btn btn-success text-white" >Update Profile</button>
                     </div>
                 </div>
             </form>
