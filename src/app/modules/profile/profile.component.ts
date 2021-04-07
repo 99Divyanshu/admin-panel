@@ -33,10 +33,14 @@ export class ProfileComponent implements OnInit {
   }
   onSubmit()
   {
+    this.user=this.userList;
     if(localStorage.getItem(this.users.mail))
     {
-      localStorage.setItem(this.users.mail,JSON.stringify(this.userList));
-     // localStorage.setItem('currentUser',JSON.stringify(this.userList));
+      //console.log(JSON.stringify(this.user));
+
+      localStorage.setItem(this.users.mail,JSON.stringify(this.userList[0]));
+      
+      //localStorage.setItem('currentUser',JSON.stringify(this.userList));
       //users=JSON.parse(localStorage.getItem('Users')!);
       //users=[user,...users];//...is a spread operator that allows elements of array to expand in existing array
       alert("Updated Profile!!")
