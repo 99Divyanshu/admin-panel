@@ -13,6 +13,7 @@ import { AuthGuard } from './login/auth/auth.guard';
 import { RegisterComponent } from './register/component/register/register.component';
 import { HttpClient } from '@angular/common/http';
 import { MysericeService } from './login/service/myserice.service';
+import {  ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -27,8 +28,11 @@ import { MysericeService } from './login/service/myserice.service';
     BrowserAnimationsModule,
     DefaultModule,
     NgbModule,
-    
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot(
+      {
+      }
+    )
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

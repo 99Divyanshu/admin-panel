@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +16,7 @@ export class ProfileComponent implements OnInit {
   user:any={};
   userList:any=[{'fname':this.users.fname,'lname':this.users.lname,'mail':this.users.mail,'pnumber':this.users.pnumber,'a1':this.users.a1,'a2':this.users.a2,'country':this.users.country,'state':this.users.state,'city':this.users.city,'password':this.users.password,'confirmpassword':this.users.confirmpassword}];
   // signupForm!: FormGroup;
-  constructor( private routes: Router) { }
+  constructor( private routes: Router,private toastr:ToastrService) { }
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"; 
   //signup:any=[{'fname':'','lname':'','mail':'','':'','a1':'','a2':'','country':'','state':'','city':'','password':'','confirmpassword':''}];
   
@@ -33,7 +34,6 @@ export class ProfileComponent implements OnInit {
   }
   onSubmit()
   {
-    this.user=this.userList;
     if(localStorage.getItem(this.users.mail))
     {
       //console.log(JSON.stringify(this.user));
@@ -43,11 +43,17 @@ export class ProfileComponent implements OnInit {
       localStorage.setItem('currentUser',JSON.stringify(this.userList[0]));
       //users=JSON.parse(localStorage.getItem('Users')!);
       //users=[user,...users];//...is a spread operator that allows elements of array to expand in existing array
-      alert("Updated Profile!!")
+      this.toastr.success('Profile Updated!!','Note:',{
+        timeOut:1000,
+        progressBar:true,
+        progressAnimation:'increasing',
+        //positionClass:'top-right-full-width',        
+      });
     }
     else
     {
-      alert("Not Updated!!")
+      this.toastr.info('Not Updated!!','Note:');
+
     }
   }
 

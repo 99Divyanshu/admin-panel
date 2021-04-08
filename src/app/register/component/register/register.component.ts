@@ -2,6 +2,7 @@
 //import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   user:any={};
  // signupForm!: FormGroup;
-  constructor( private routes: Router) { }
+  constructor( private routes: Router,private toastr:ToastrService) { }
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"; 
   signup:any={};
   cities!: Array<any>;
@@ -41,7 +42,12 @@ export class RegisterComponent implements OnInit {
     //let users=[];
     if(localStorage.getItem(this.user.mail))
     {
-      alert("User already exist with that e-mail");
+      this.toastr.info('User already exists','Note:',
+      {
+        timeOut:1000,
+        progressBar:true,
+        progressAnimation:'increasing',
+      });
       //users=JSON.parse(localStorage.getItem('Users')!);
       //users=[user,...users];//...is a spread operator that allows elements of array to expand in existing array
     }
@@ -49,7 +55,12 @@ export class RegisterComponent implements OnInit {
     {
       //users=[user];
       localStorage.setItem(this.user.mail,JSON.stringify(user));
-      alert("User Registered!!");
+      this.toastr.success('User Registered!!','Note:',
+      {
+        timeOut:1000,
+        progressBar:true,
+        progressAnimation:'increasing',
+      });
       this.routes.navigate(['/']);
     }
 
