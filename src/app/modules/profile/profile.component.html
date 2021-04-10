@@ -22,7 +22,7 @@
         </div>
         <div class="card-body" *ngFor="let it of userList">
             <h5 class="text-muted">E-mail Address</h5>
-            <h5>sachin_10@gmail.com</h5>
+            <h5>{{it.mail}}</h5>
             <h5 class="text-muted">Phone</h5>
             <h5>{{it.pnumber}}</h5>
             <h5 class="text-muted">Address</h5>
@@ -132,8 +132,8 @@
                     <div class="col">
                         <div class="form-group">
                             <label for="City">City</label>
-                            <select [(ngModel)]="item.city" name="city" class="form-control" #city="ngModel" required >
-                                <option *ngFor ="let city of cities">{{city}}</option>
+                            <select [(ngModel)]="item.city" placeholer="item.city" name="city" class="form-control" #city="ngModel" required >
+                                <option *ngFor ="let city of cities" >{{city}}</option>
                               </select>
                               <div class="alert alert-danger" *ngIf="city.errors  && (city.dirty || city.touched)">              
                                 Please select your city

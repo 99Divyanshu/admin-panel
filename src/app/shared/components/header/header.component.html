@@ -3,9 +3,12 @@
         <button mat-icon-button (click)="toggleSidenav()">
             <mat-icon>menu</mat-icon>
         </button>   
-        <span *ngFor="let it of userList" >                     Welcome {{it.fname}}!!</span>
+        <span *ngFor="let it of userList" >Welcome {{it.fname}}!!</span>
         <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
             <ul fxLayout="row" fxLayoutGap="20px">
+                <li>
+                    <a href="home/data">Registered Users</a>
+                </li>
                 <li>
                     <button mat-icon-button (click)="onSettings()">
                         <mat-icon>settings</mat-icon>

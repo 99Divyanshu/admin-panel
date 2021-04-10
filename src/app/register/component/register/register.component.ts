@@ -17,11 +17,11 @@ export class RegisterComponent implements OnInit {
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"; 
   signup:any={};
   cities!: Array<any>;
-  stateList:Array<any>=[{name:'Select State',cities:['Select City']},
-  {name:'Uttar Pradesh',cities:['Noida','Lucknow','Varanasi']},
-  {name:'Rajasthan',cities:['Jaipur','Udaipur','Jodhpur']},
-  {name:'Himachal Pradesh',cities:['Shimla','Manali','Dalhousie']},
-  {name:'Haryana',cities:['Gurugram','Rohtak','Faridabad']},                      
+  stateList:Array<any>=[
+  {name:'Uttar Pradesh',cities:['Select City','Noida','Lucknow','Varanasi']},
+  {name:'Rajasthan',cities:['Select City','Jaipur','Udaipur','Jodhpur']},
+  {name:'Himachal Pradesh',cities:['Select City','Shimla','Manali','Dalhousie']},
+  {name:'Haryana',cities:['Select City','Gurugram','Rohtak','Faridabad']},                      
   ];
 
   changeCountry(count:Event)

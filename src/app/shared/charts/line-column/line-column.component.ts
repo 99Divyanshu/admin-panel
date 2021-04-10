@@ -93,7 +93,7 @@ export class LineColumnComponent implements OnInit {
         type: 'spline',
         data: [60.0, 76.9, 89.5, 84.5, 78.2, 91.5, 85.2, 56.5, 83.3, 98.3, 63.9, 60.6],
         tooltip: {
-            valueSuffix: '°C'
+            valueSuffix: '°F'
         }
     }]
 };

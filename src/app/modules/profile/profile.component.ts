@@ -21,11 +21,10 @@ export class ProfileComponent implements OnInit {
   //signup:any=[{'fname':'','lname':'','mail':'','':'','a1':'','a2':'','country':'','state':'','city':'','password':'','confirmpassword':''}];
   
   cities!: Array<any>;
-  stateList:Array<any>=[{name:'Select State',cities:['Select City']},
-  {name:'Uttar Pradesh',cities:['Noida','Lucknow','Varanasi']},
-  {name:'Rajasthan',cities:['Jaipur','Udaipur','Jodhpur']},
-  {name:'Himachal Pradesh',cities:['Shimla','Manali','Dalhousie']},
-  {name:'Haryana',cities:['Gurugram','Rohtak','Faridabad']},                      
+  stateList:Array<any>=[{name:'Uttar Pradesh',cities:['Select City','Noida','Lucknow','Varanasi']},
+  {name:'Rajasthan',cities:['Select City','Jaipur','Udaipur','Jodhpur']},
+  {name:'Himachal Pradesh',cities:['Select City','Shimla','Manali','Dalhousie']},
+  {name:'Haryana',cities:['Select City','Gurugram','Rohtak','Faridabad']},                      
   ];
 
   changeCountry(count:Event)

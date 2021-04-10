@@ -4,11 +4,6 @@
     overflow: hidden;
 }
 }
-#bar
-{
-    margin-left: 80px;
-}
-#line
-{
-    margin-left: 16px;
+[class*="col-"] {
+    margin-bottom: 15px;
 }

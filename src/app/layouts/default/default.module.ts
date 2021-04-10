@@ -13,12 +13,14 @@ import {MatTableModule} from '@angular/material/table';
 import { ProfileComponent } from 'src/app/modules/profile/profile.component';
 import { MatSortModule } from '@angular/material/sort';
 import { FormsModule } from '@angular/forms';
+import { RenderComponent } from 'src/app/modules/render/render.component';
 
 @NgModule({
   declarations: [
     DefaultComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    RenderComponent
   ],
   imports: [
     CommonModule,

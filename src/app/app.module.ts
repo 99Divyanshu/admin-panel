@@ -16,12 +16,13 @@ import { MysericeService } from './login/service/myserice.service';
 import {  ToastrModule } from 'ngx-toastr';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
-  ],
+    RegisterComponent,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

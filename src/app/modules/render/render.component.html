@@ -1,0 +1,18 @@
+<div class="account" >
+    <h1 class="table-heading">List of Registered Users</h1>
+    <table id="users">
+      <tr>
+        <th *ngFor="let columns of headers">
+          {{columns}}
+        </th>
+      </tr>
+      <tr *ngFor="let item of userList">
+        <td>{{item.fname}}</td>
+        <td>{{item.lname}}</td>
+        <td>{{item.pnumber}}</td>
+        <td>{{item.mail}}</td>
+        <td>{{item.city}}</td>
+       </tr>
+    </table>
+  </div>
+  
